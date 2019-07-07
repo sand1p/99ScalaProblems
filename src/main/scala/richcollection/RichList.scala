@@ -1,0 +1,5 @@
+package richcollection
+
+class RichList {
+
+}
