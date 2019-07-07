@@ -1,14 +1,16 @@
 package richcollection
 
-trait RichList {
+class RichList {
 
+//  implicit def toRichList[A](list: List[A]): RichList = RichList.apply
+//  implicit val list =
   /**
     * P01 (*) Find the last element of a list.
     * Example:
     * scala> last(List(1, 1, 2, 3, 5, 8))
     * res0: Int = 8
     */
-  def last ()
+  def last () = ???
 
   /**
     * P02 (*) Find the last but one element of a list.
@@ -16,7 +18,7 @@ trait RichList {
     * scala> penultimate(List(1, 1, 2, 3, 5, 8))
     * res0: Int = 5
     */
-  def lastButOne()
+  def lastButOne() = ???
 
   /**
     * P03 (*) Find the Kth element of a list.
@@ -26,7 +28,7 @@ trait RichList {
     * scala> nth(2, List(1, 1, 2, 3, 5, 8))
     * res0: Int = 2
     */
-  def kthElement()
+  def kthElement() = ???
 
   /**
     * P04 (*) Find the number of elements of a list.
@@ -34,7 +36,7 @@ trait RichList {
     * scala> length(List(1, 1, 2, 3, 5, 8))
     * res0: Int = 6
     */
-  def noOfElements()
+  def noOfElements() = ???
 
   /**
     * P05 (*) Reverse a list.
@@ -42,7 +44,7 @@ trait RichList {
     * scala> reverse(List(1, 1, 2, 3, 5, 8))
     * res0: List[Int] = List(8, 5, 3, 2, 1, 1)
     */
-  def reverse()
+  def reverse() = ???
 
   /**
     * P06 (*) Find out whether a list is a palindrome.
@@ -50,7 +52,7 @@ trait RichList {
     * scala> isPalindrome(List(1, 2, 3, 2, 1))
     * res0: Boolean = true
     */
-  def isPalindrome()
+  def isPalindrome() = ???
 
   /**
     * P07 (**) Flatten a nested list structure.
@@ -61,7 +63,7 @@ trait RichList {
     * @param list
     * @return
     */
-  def flatten(list: List[List[Int]]) : List[Int]
+  def flatten(list: List[List[Int]]) : List[Int] = ???
 
   /**
     * P08 (**) Eliminate consecutive duplicates of list elements.
@@ -74,7 +76,7 @@ trait RichList {
     * @param list
     * @return
     */
-  def eliminateConsecutiveDuplicate(list: List[Int]): List[Int]
+  def eliminateConsecutiveDuplicate(list: List[Int]): List[Int] = ???
 
   /**
     * P09 (**) Pack consecutive duplicates of list elements into sublists.
@@ -84,7 +86,7 @@ trait RichList {
     * scala> pack(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
     * res0: List[List[Symbol]] = List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e))
     */
-  def packConsecutiveDuplicateElementsToList()
+  def packConsecutiveDuplicateElementsToList() = ???
 
   /**
     * P10 (*) Run-length encoding of a list.
@@ -94,6 +96,13 @@ trait RichList {
     * scala> encode(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
     * res0: List[(Int, Symbol)] = List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e))
     */
-  def runLengthEncoding()
+  def runLengthEncoding() = ???
 
+}
+object RichList {
+  def apply[A](): RichList = new RichList
+
+  def apply[A](a:A *): List[A] = List(a:_*)
+
+  implicit def toRichList[A](list: List[A]): RichList = RichList()
 }
